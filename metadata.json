@@ -1,0 +1,6 @@
+{
+  "name": "Ludo Controller",
+  "description": "High-performance Bluetooth companion and multi-channel controller app designed for synchronization with App 1 and future Ludo gameplay.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
