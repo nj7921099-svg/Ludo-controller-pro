@@ -5,21 +5,31 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import com.example.ui.ControllerScreen
+import com.example.activation.ActivationGate
+import com.example.activation.ActivationViewModel
 import com.example.ui.ControllerViewModel
 import com.example.ui.theme.MyApplicationTheme
 
 class MainActivity : ComponentActivity() {
-    private val viewModel: ControllerViewModel by viewModels()
+    private val controllerViewModel: ControllerViewModel by viewModels()
+    private val activationViewModel: ActivationViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             MyApplicationTheme {
-                ControllerScreen(viewModel = viewModel)
+                ActivationGate(
+                    activationViewModel = activationViewModel,
+                    controllerViewModel = controllerViewModel
+                )
             }
         }
     }
-}
 
+    override fun onResume() {
+        super.onResume()
+        // Check activation and expiry status every time the app returns to foreground
+        activationViewModel.checkStatusOnResume()
+    }
+}
