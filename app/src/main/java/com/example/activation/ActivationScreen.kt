@@ -230,8 +230,8 @@ private fun PasswordActivationContent(
                     .shadow(16.dp, RoundedCornerShape(26.dp), spotColor = AccentGlowPrimary)
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_neon_dice_pad),
-                    contentDescription = "Neon Dice Pad Icon",
+                    painter = painterResource(id = R.drawable.app_icon),
+                    contentDescription = "Application Icon",
                     modifier = Modifier
                         .size(76.dp)
                         .clip(RoundedCornerShape(20.dp))
